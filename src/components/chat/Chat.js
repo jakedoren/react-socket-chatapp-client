@@ -32,10 +32,13 @@ const Chat = ({location}) => {
 
         socketRef.current.on('message', (message) => {
             recievedMessage(message)
+            console.log(message)
         })
           
         
-    }, [ENDPOINT])
+    }, [ENDPOINT, location.search])
+    
+    
 
 
     const handleChange = (e) => {
@@ -58,6 +61,7 @@ const Chat = ({location}) => {
 
     const recievedMessage = (message) => {
         setMessages(oldMsgs => [...oldMsgs, message])
+        console.log(messages)
     }
 
 
