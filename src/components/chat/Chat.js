@@ -2,6 +2,8 @@ import React, {useState, useEffect, useRef} from 'react'
 import io from 'socket.io-client'
 import Input from '../input/Input'
 import queryString from 'query-string'
+import Messagesection from '../messagesection/Messagesection'
+import Heading from '../heading/Heading'
 
 import './Chat.css'
 
@@ -67,25 +69,8 @@ const Chat = ({location}) => {
 
     return (
         <div className="app-container">
-            <div className="chat-messages">
-                {messages.map((msg, i) => {
-                    if(msg.id == yourID) {
-                        return (
-                            <div className="your-msg" key={i}>
-                                <div className="your-bubble">
-                                    <p>{msg.body}</p>
-                                </div>    
-                            </div>
-                        ) 
-                    } return (
-                        <div className="friend-msg" key={i}>
-                            <div className="their-bubble">
-                                <p>{msg.body}</p>
-                            </div>
-                        </div>
-                    )
-                })}
-            </div>
+            <Heading room={room} />
+            <Messagesection messages={messages} yourID={yourID} />
             <Input sendMessage={sendMessage} message={message} handleChange={handleChange} />
         </div>
     )

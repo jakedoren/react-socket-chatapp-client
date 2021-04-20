@@ -3,53 +3,7 @@
     margin: 0 auto;
     height: 100vh;
     background-color: #383636;
-}
-
-.chat-messages {
-    color: black;
-    height: 90%;
     display: flex;
     flex-direction: column;
 }
 
-
-
-.your-msg {
-    margin: 0;
-    display: flex;
-    justify-content: flex-end;
-    color: white;
-    width: 100%;
-    padding: 0.4em 0;
-}
-.friend-msg {
-    color: white;
-    width: 100%;
-    
-    display: flex;
-    justify-content: flex-start;
-    padding: 0.4em 0;
-}
-
-.friend-msg p, .your-msg p {
-    margin: 0;
-    padding: 8px;
-}
-
-.your-bubble {
-    background-color: #8AA2A9;
-    border-radius: 10px 10px 0px 10px;
-    margin-right: 0.5em;
-    max-width: 45%;
-    overflow: visible;
-    overflow-wrap: break-word;
-}
-
-
-.their-bubble {
-    background-color: #494449;
-    margin-left: 0.5em;
-    border-radius: 10px 10px 10px 0px;
-    max-width: 45%;
-   overflow-wrap: break-word;
-}
