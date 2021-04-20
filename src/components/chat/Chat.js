@@ -42,7 +42,6 @@ const Chat = ({location}) => {
     
     
 
-
     const handleChange = (e) => {
         setMessage(e.target.value)
         console.log(message)
@@ -53,7 +52,8 @@ const Chat = ({location}) => {
 
         const messageObject = {
             body: message,
-            id: yourID
+            id: yourID,
+            name: name
         };
 
         setMessage('')

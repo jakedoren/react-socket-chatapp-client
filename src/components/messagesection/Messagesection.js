@@ -7,16 +7,22 @@ const Messagesection = ({messages, yourID}) => {
                 {messages.map((msg, i) => {
                     if(msg.id == yourID) {
                         return (
-                            <div className="your-msg" key={i}>
-                                <div className="your-bubble">
-                                    <p>{msg.body}</p>
-                                </div>    
+                            <div>
+                                <div className="your-msg" key={i}>
+                                    <div className="your-bubble">
+                                        <p>{msg.body}</p>
+                                    </div>    
+                                </div>
                             </div>
                         ) 
                     } return (
-                        <div className="friend-msg" key={i}>
-                            <div className="their-bubble">
-                                <p>{msg.body}</p>
+                        <div>
+                            {msg.name ? <h1 className="name">{msg.name}</h1> : <h1 className="name">ChatBot</h1>}
+                            <div className="friend-msg" key={i} >
+                                <div className="their-bubble" >
+                                
+                                    <p>{msg.body}</p>
+                                </div>
                             </div>
                         </div>
                     )
