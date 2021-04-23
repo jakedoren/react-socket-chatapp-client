@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
+import Login from './components/login/Login'
 
 const Home = () => {
   const history = useHistory();
@@ -14,15 +15,16 @@ const Home = () => {
   
   const logout = async () => oktaAuth.signOut();
 
-  const button = authState.isAuthenticated ? 
+  const logButton = authState.isAuthenticated ? 
     <button onClick={logout}>Logout</button> :
     <button onClick={login}>Login</button>;
 
   return (
     <div>
-      <Link to='/'>Home</Link><br/>
-      <Link to='/chat'>Protected</Link><br/>
-      {button}
+      {/* <Link to='/'>Home</Link><br/> */}
+      <Login logButton={logButton}/>
+      {/* <Link to='/chat'>Enter Chat</Link><br/> */}
+      {/* {logButton} */}
     </div>
   );
 };

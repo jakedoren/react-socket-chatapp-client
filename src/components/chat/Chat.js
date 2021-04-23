@@ -21,7 +21,7 @@ const Chat = ({location}) => {
     const socketRef = useRef();
 
     useEffect(() => {
-        // const { name, room } = queryString.parse(location.search);
+        const { room } = queryString.parse(location.search);
 
         socketRef.current = io.connect(ENDPOINT)
 
