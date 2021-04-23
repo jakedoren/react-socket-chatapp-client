@@ -35,8 +35,9 @@ const oktaAuthConfig = {
       // Used to enable registration feature on the widget.
       // https://github.com/okta/okta-signin-widget#feature-flags
        registration: true // REQUIRED
-    }
+    },
     // Additional documentation on config options can be found at https://github.com/okta/okta-signin-widget#basic-config-options
+    logo: '//logo.clearbit.com/okta.com',
   };
   
   export { oktaAuthConfig, oktaSignInConfig };
