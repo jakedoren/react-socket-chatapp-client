@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useContext} from 'react'
 import io from 'socket.io-client'
 import Input from '../input/Input'
 import queryString from 'query-string'
@@ -6,12 +6,14 @@ import Messagesection from '../messagesection/Messagesection'
 import Heading from '../heading/Heading'
 
 import './Chat.css'
+import UserContext from '../../UserContext'
 
 const Chat = ({location}) => {
     const [yourID, setYourID] = useState();
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    const [name, setName] = useState('')
+    // const [name, setName] = useState('')
+    const { name } = useContext(UserContext)
     const [room, setRoom] = useState('')
 
     const ENDPOINT = 'http://localhost:8080/'
@@ -19,11 +21,11 @@ const Chat = ({location}) => {
     const socketRef = useRef();
 
     useEffect(() => {
-        const { name, room } = queryString.parse(location.search);
+        // const { name, room } = queryString.parse(location.search);
 
         socketRef.current = io.connect(ENDPOINT)
 
-        setName(name)
+        // setName(name)
         setRoom(room)
 
         socketRef.current.emit('join', {name, room})
