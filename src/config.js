@@ -16,6 +16,25 @@ const oktaAuthConfig = {
       // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
       // you will need to uncomment the below line
       // pkce: false
+    },
+    registration: {
+      parseSchema: function(schema, onSuccess, onFailure) {
+         // handle parseSchema callback
+         onSuccess(schema);
+      },
+      preSubmit: function (postData, onSuccess, onFailure) {
+         // handle preSubmit callback
+         onSuccess(postData);
+      },
+      postSubmit: function (response, onSuccess, onFailure) {
+          // handle postsubmit callback
+         onSuccess(response);
+      }
+    },
+    features: {
+      // Used to enable registration feature on the widget.
+      // https://github.com/okta/okta-signin-widget#feature-flags
+       registration: true // REQUIRED
     }
     // Additional documentation on config options can be found at https://github.com/okta/okta-signin-widget#basic-config-options
   };
