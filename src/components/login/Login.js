@@ -5,10 +5,12 @@ import { useOktaAuth } from '@okta/okta-react';
 import './Login.css'
 
 const Join = ({logButton}) => {
-    const [name, setName] = useState('')
     const [room, setRoom] = useState('');
     const { oktaAuth, authState } = useOktaAuth();
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const {name, setName} = useContext(UserContext)
+
+    const [userVal, setUserVal] = useState(localStorage.getItem('username') || '')
 
     useEffect(() => {
         if(!authState.isAuthenticated) {
@@ -18,14 +20,14 @@ const Join = ({logButton}) => {
           oktaAuth.tokenManager.getTokens().then(tok => {
             setIsLoggedIn(true)
             setName(tok.accessToken.claims.sub)
-            console.log(tok.accessToken.claims)
           })
     
-          return () => {
-            setIsLoggedIn(false); 
-          }
         }
       }, [authState, oktaAuth])
+
+      useEffect(() => {
+        localStorage.setItem('username', name)
+      }, [name])
 
     
     return (

@@ -20,7 +20,8 @@ form button {
     /* padding-left: 25px; */
     /* position: absolute; */
     cursor: pointer;
-    background-color: #8AA2A9;
+    /* background-color: #8AA2A9; */
+    background-color: #2E6171;
     color: white;
     padding: 10px;
 }

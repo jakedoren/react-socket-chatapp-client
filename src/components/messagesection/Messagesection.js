@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import UserContext from '../../UserContext'
 import './Messagesection.css'
 
 const Messagesection = ({messages, yourID}) => {
+    const {name} = useContext(UserContext)
+
+    
     return (
         <div className="chat-messages">
                 {messages.map((msg, i) => {
@@ -20,7 +24,6 @@ const Messagesection = ({messages, yourID}) => {
                             {msg.name ? <h1 className="name">{msg.name}</h1> : <h1 className="name">ChatBot</h1>}
                             <div className="friend-msg" key={i} >
                                 <div className="their-bubble" >
-                                
                                     <p>{msg.body}</p>
                                 </div>
                             </div>

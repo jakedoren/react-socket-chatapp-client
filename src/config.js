@@ -12,23 +12,25 @@ const oktaAuthConfig = {
     clientId: '0oamrlnyo0YM908Mq5d6',
     redirectUri: window.location.origin + '/login/callback',
     authParams: {
-      // If your app is configured to use the Implicit flow
-      // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
-      // you will need to uncomment the below line
-      // pkce: false
+      issuer: 'https://dev-34817705.okta.com/oauth2/default',
+      responseType: ['id_token', 'token'],
+      scopes: ['openid', 'email', 'profile'],
     },
     registration: {
       parseSchema: function(schema, onSuccess, onFailure) {
          // handle parseSchema callback
          onSuccess(schema);
+        //  onFailure(schema)
       },
       preSubmit: function (postData, onSuccess, onFailure) {
          // handle preSubmit callback
          onSuccess(postData);
+        //  onFailure()
       },
       postSubmit: function (response, onSuccess, onFailure) {
           // handle postsubmit callback
          onSuccess(response);
+         
       }
     },
     features: {
@@ -38,6 +40,9 @@ const oktaAuthConfig = {
     },
     // Additional documentation on config options can be found at https://github.com/okta/okta-signin-widget#basic-config-options
     logo: '//logo.clearbit.com/okta.com',
+    
   };
+
+
   
   export { oktaAuthConfig, oktaSignInConfig };

@@ -5,22 +5,9 @@ import { useOktaAuth } from '@okta/okta-react';
 import UserContext from './UserContext'
 
 const Login = ({ config }) => {
-  const { setName } = useContext(UserContext)
+  const { setName, name } = useContext(UserContext)
   const { oktaAuth, authState } = useOktaAuth();
 
-  useEffect(() => {
-    if(!authState.isAuthenticated) {
-      setName("no user")
-    } else {
-      oktaAuth.tokenManager.getTokens().then(tok => {
-        setName(tok.accessToken.claims.sub)
-      })
-
-      return () => {
-        setName(); 
-      }
-    }
-  }, [authState, oktaAuth])
 
   const onSuccess = (tokens) => {
     oktaAuth.handleLoginRedirect(tokens);
