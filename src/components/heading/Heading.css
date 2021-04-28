@@ -1,5 +1,6 @@
 .heading-container {
-    background-color: #8AA2A9;
+    /* background-color: #8AA2A9; */
+    background-color: #2E6171;
     height: 8%;
     width: 80vw;
     display: flex;
@@ -8,6 +9,7 @@
 
 .heading-copy-container h1{
     margin: 0;
+    color: #fff;
 }
 
 .heading-copy-container {

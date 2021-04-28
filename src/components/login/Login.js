@@ -1,10 +1,33 @@
-import React, {useState} from 'react'
+import React, {useContext, useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
+import UserContext from '../../UserContext'
+import { useOktaAuth } from '@okta/okta-react';
 import './Login.css'
 
-const Join = () => {
-    const [name, setName] = useState('');
+const Join = ({logButton}) => {
     const [room, setRoom] = useState('');
+    const { oktaAuth, authState } = useOktaAuth();
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const {name, setName} = useContext(UserContext)
+
+    const [userVal, setUserVal] = useState(localStorage.getItem('username') || '')
+
+    useEffect(() => {
+        if(!authState.isAuthenticated) {
+          setIsLoggedIn(false)
+          setName('')
+        } else {
+          oktaAuth.tokenManager.getTokens().then(tok => {
+            setIsLoggedIn(true)
+            setName(tok.accessToken.claims.sub)
+          })
+    
+        }
+      }, [authState, oktaAuth])
+
+      useEffect(() => {
+        localStorage.setItem('username', name)
+      }, [name])
 
     
     return (
@@ -12,16 +35,17 @@ const Join = () => {
             <div className="join-container"> 
                 <div className="inputs">
                     <div className="brand-container">
-                        <h1>Join</h1> 
+                        {isLoggedIn ? <h1>Hello, {name} </h1> : <h1>Please Log In</h1>}
                     </div>
                     <span></span>
-                    <p>Username</p>
-                    <input type="text" placeholder="myname" onChange={event => setName(event.target.value)} />
-                    <p>Room</p>
-                    <input type="text" placeholder="myfriendschatroom" className="login-input" onChange={event => setRoom(event.target.value)} />
-                    <Link onClick={event => (!name || !room) ? event.preventDefault() : null} to={`chat?name=${name}&room=${room}`} className='join-btn'>
-                        <p>LOGIN</p>
-                    </Link>
+                    {isLoggedIn ? 
+                    <div>
+                        <p>Room</p>
+                        <input type="text" placeholder="myfriendschatroom" className="login-input" onChange={event => setRoom(event.target.value)} />
+                        <Link to={`chat?room=${room}`} onClick={event => !room ? event.preventDefault() : null} className="join-btn" >Enter Chat</Link><br/>
+                         {logButton}
+                    </div>
+                    : <a>{logButton}</a>}
                 </div>
             </div>
         </div>

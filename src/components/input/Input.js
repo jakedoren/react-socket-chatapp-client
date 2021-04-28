@@ -4,7 +4,7 @@ import './Input.css'
 const Input = ({ sendMessage, message, handleChange }) => {
     return (
             <div className="input-submit">
-                <form onSubmit={sendMessage}>
+                <form className="text-form" onSubmit={sendMessage}>
                     <input value={message} onChange={handleChange} placeholder="dont be shy.. say something!"/>
                     <button>Send</button>
                 </form>
