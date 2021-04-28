@@ -57,6 +57,10 @@ const Chat = ({location}) => {
             recievedMessage(message)
             console.log(message)
         })
+
+        return ()=>{
+            socketRef.current.close();
+        }
         
         
     }, [ENDPOINT, location.search])
