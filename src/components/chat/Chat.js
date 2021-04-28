@@ -13,12 +13,12 @@ const Chat = ({location}) => {
     const [yourID, setYourID] = useState();
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
-    // const [name, setName] = useState('')
     const { name, setName } = useContext(UserContext)
-    // const [user, setUser] = useState('')
     const [userVal, setUserVal] = useState(localStorage.getItem('username', name))
     const [room, setRoom] = useState('')
     const { oktaAuth, authState } = useOktaAuth();
+    const [userData, setUserData] = useState([])
+    const [roomData, setRoomData] = useState(localStorage.getItem('roomdata'))
 
     const ENDPOINT = 'http://localhost:8080/'
 
@@ -27,6 +27,7 @@ const Chat = ({location}) => {
     useEffect(() => {
         localStorage.setItem('username', name)
       }, [name])
+
 
     useEffect(() => {
         if(!authState.isAuthenticated) {
@@ -58,6 +59,23 @@ const Chat = ({location}) => {
             console.log(message)
         })
 
+        // socketRef.current.on('roomUsers', (usersInRoomInfo) => {
+        //     console.log(usersInRoomInfo.users)
+
+        //     for(let i = 0; i < usersInRoomInfo.users.length; i++) {
+        //         console.log(usersInRoomInfo)
+        //     }
+
+           
+        // })
+
+        socketRef.current.on('roomUsers', (usersInRoomInfo) => {
+            setUserData(usersInRoomInfo)
+            console.log('roomdata: ', JSON.parse(roomData))
+        })
+        
+        
+
         return ()=>{
             socketRef.current.close();
         }
@@ -65,7 +83,9 @@ const Chat = ({location}) => {
         
     }, [ENDPOINT, location.search])
     
-    
+    useEffect(() => {
+        localStorage.setItem('roomdata', JSON.stringify(userData))
+    }, [userData])
 
     const handleChange = (e) => {
         setMessage(e.target.value)
