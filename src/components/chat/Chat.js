@@ -5,6 +5,7 @@ import queryString from 'query-string'
 import Messagesection from '../messagesection/Messagesection'
 import Heading from '../heading/Heading'
 import { useOktaAuth } from '@okta/okta-react';
+import Users from '../users/Users'
 
 import './Chat.css'
 import UserContext from '../../UserContext'
@@ -17,8 +18,7 @@ const Chat = ({location}) => {
     const [userVal, setUserVal] = useState(localStorage.getItem('username', name))
     const [room, setRoom] = useState('')
     const { oktaAuth, authState } = useOktaAuth();
-    const [userData, setUserData] = useState([])
-    const [roomData, setRoomData] = useState(localStorage.getItem('roomdata'))
+    const [users, setUsers] = useState('')
 
     const ENDPOINT = 'http://localhost:8080/'
 
@@ -59,19 +59,9 @@ const Chat = ({location}) => {
             console.log(message)
         })
 
-        // socketRef.current.on('roomUsers', (usersInRoomInfo) => {
-        //     console.log(usersInRoomInfo.users)
 
-        //     for(let i = 0; i < usersInRoomInfo.users.length; i++) {
-        //         console.log(usersInRoomInfo)
-        //     }
-
-           
-        // })
-
-        socketRef.current.on('roomUsers', (usersInRoomInfo) => {
-            setUserData(usersInRoomInfo)
-            console.log('roomdata: ', JSON.parse(roomData))
+        socketRef.current.on('roomUsers', ({users}) => {
+            setUsers(users)
         })
         
         
@@ -82,10 +72,10 @@ const Chat = ({location}) => {
         
         
     }, [ENDPOINT, location.search])
+
     
-    useEffect(() => {
-        localStorage.setItem('roomdata', JSON.stringify(userData))
-    }, [userData])
+    
+    
 
     const handleChange = (e) => {
         setMessage(e.target.value)
@@ -117,6 +107,7 @@ const Chat = ({location}) => {
             <Heading room={room} />
             <Messagesection messages={messages} yourID={yourID} />
             <Input sendMessage={sendMessage} message={message} handleChange={handleChange} />
+            <Users users={users}/>
         </div>
     )
 }
