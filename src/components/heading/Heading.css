@@ -1,18 +1,34 @@
 .heading-container {
     /* background-color: #8AA2A9; */
-    background-color: #2E6171;
+    /* background-color: #2E6171; */
+    background-color: #EDEFF4;
+    border-radius: 20px 20px 0px 0px;
+    border-bottom: 2px solid #cacdd4b4;
     height: 8%;
-    width: 80vw;
+    width: 100%;
     display: flex;
     align-items: center;
+    color: black;
+}
+
+.link-wrap ul{
+    display: flex;
+}
+
+.link-wrap ul li {
+    list-style: none;
+    margin: 0 0 0 2em;
 }
 
 .heading-copy-container h1{
     margin: 0;
-    color: #fff;
+    color: black;
 }
 
 .heading-copy-container {
-    width: 95%;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 0 auto;
 }

@@ -5,7 +5,15 @@ const Heading = ({room}) => {
     return (
         <div className="heading-container">
             <div className="heading-copy-container">
-                <h1>{room}</h1>
+                <div>
+                    <h1>{room}</h1>
+                </div>
+                <div className="link-wrap">
+                    <ul>
+                        <li>Messages</li>
+                        <li>Participants</li>
+                    </ul>
+                </div>
             </div>
         </div>
     )

@@ -103,12 +103,15 @@ const Chat = ({location}) => {
 
 
     return (
-        <div className="app-container">
-            <Heading room={room} />
-            <Messagesection messages={messages} yourID={yourID} />
-            <Input sendMessage={sendMessage} message={message} handleChange={handleChange} />
-            <Users users={users}/>
+        <div className="app-wrapper">
+            <div className="app-container">
+                <Heading room={room} />
+                <Messagesection messages={messages} yourID={yourID} />
+                <Input sendMessage={sendMessage} message={message} handleChange={handleChange} />
+                {/* <Users users={users}/> */}
+            </div>
         </div>
+        
     )
 }
 
