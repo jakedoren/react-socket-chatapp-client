@@ -10,7 +10,7 @@ const Heading = ({room}) => {
                 </div>
                 <div className="link-wrap">
                     <ul>
-                        <li>Messages</li>
+                        <li className="active">Messages</li>
                         <li>Participants</li>
                     </ul>
                 </div>

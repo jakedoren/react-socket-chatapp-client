@@ -1,14 +1,14 @@
 .input-submit {
     width: 100%;
     height: 10%;
-    background-color: #363336;
+    background-color: #d6d9dd;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 0 0 20px 20px;
 }
 .text-form {
-    width: 90%;
+    width: 95%;
     margin: 0 auto;
     display: flex;
     justify-content: center;
@@ -24,7 +24,6 @@ form button {
 }
 
 .input-submit input {
-    background-color: #494449;
     border: 0;
     border-radius: 15px 0px 0px 15px;
     padding: 1em;
@@ -33,10 +32,9 @@ form button {
 }
 
 input:focus {
-    color: #fff;
     outline: none;
 }
 
-input::placeholder {
-    color: #fff;
-}
+
+  
+  
