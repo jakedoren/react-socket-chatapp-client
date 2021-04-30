@@ -8,12 +8,14 @@ import Protected from './Protected';
 import Chat from './components/chat/Chat'
 import { oktaAuthConfig, oktaSignInConfig } from './config';
 import UserContext from './UserContext';
+import MessageContext from './MessageContext'
 
 const oktaAuth = new OktaAuth(oktaAuthConfig);
 
 const AppWithRouterAccess = () => {
   const history = useHistory();
   const [name, setName] = useState('')
+  const [messageSection, setMessageSection] = useState(true)
 
   const customAuthHandler = () => {
     history.push('/login');
@@ -26,7 +28,8 @@ const AppWithRouterAccess = () => {
   };
 
   return (
-    <UserContext.Provider value={{name, setName}}>
+    <UserContext.Provider value={{name, setName, messageSection, setMessageSection}}>
+    <MessageContext.Provider value={{messageSection, setMessageSection}}>
       <Security
       oktaAuth={oktaAuth}
       onAuthRequired={customAuthHandler}
@@ -39,6 +42,7 @@ const AppWithRouterAccess = () => {
         <Route path='/login/callback' component={LoginCallback} />
       </Switch>
     </Security>
+    </MessageContext.Provider>
     </UserContext.Provider>
   );
 };

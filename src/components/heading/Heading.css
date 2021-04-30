@@ -19,6 +19,7 @@
     list-style: none;
     margin: 0 0 0 2em;
     padding: 0.5em 1em;
+    cursor: pointer;
 }
 
 .heading-copy-container h1{

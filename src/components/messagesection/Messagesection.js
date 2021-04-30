@@ -3,7 +3,6 @@ import UserContext from '../../UserContext'
 import './Messagesection.css'
 
 const Messagesection = ({messages, yourID}) => {
-    const {name} = useContext(UserContext)
 
     
     return (
