@@ -6,7 +6,6 @@
     overflow: scroll;
 }
 
-
 .your-msg {
     margin: 0;
     display: flex;
@@ -38,7 +37,6 @@
     overflow: visible;
     overflow-wrap: break-word;
 }
-
 
 .their-bubble {
     background-color: #fff;

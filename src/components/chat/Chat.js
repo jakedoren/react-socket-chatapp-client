@@ -3,11 +3,8 @@ import io from 'socket.io-client'
 import Input from '../input/Input'
 import queryString from 'query-string'
 import Messagesection from '../messagesection/Messagesection'
-import Heading from '../heading/Heading'
 import { useOktaAuth } from '@okta/okta-react';
 import Users from '../users/Users'
-import MessageContext from '../../MessageContext'
-
 import './Chat.css'
 import UserContext from '../../UserContext'
 
@@ -120,10 +117,9 @@ const Chat = ({location}) => {
                     </ul>
                 </div>
             </div>
-        </div>
+            </div>
                 {messageSection ? <Messagesection messages={messages} yourID={yourID} /> : <Users users={users}/>}    
                 <Input sendMessage={sendMessage} message={message} handleChange={handleChange} />
-                {/* <Users users={users}/> */}
             </div>
         </div>
         
