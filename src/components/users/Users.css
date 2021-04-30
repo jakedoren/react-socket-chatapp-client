@@ -1,11 +1,8 @@
 .users-wrapper {
     height: 82%;
-    /* background-color: blue; */
     width: 100%;
-    /* display: flex; */
     justify-content: center;
-    margin-top: 25px;
-    /* align-items: center; */
+    overflow: scroll;
 }
 
 .users-section {

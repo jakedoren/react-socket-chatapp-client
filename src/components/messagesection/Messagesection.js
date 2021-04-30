@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
+import ScrollToBottom from 'react-scroll-to-bottom'
 import UserContext from '../../UserContext'
 import './Messagesection.css'
 
@@ -6,7 +7,7 @@ const Messagesection = ({messages, yourID}) => {
 
     
     return (
-        <div className="chat-messages">
+        <ScrollToBottom className="chat-messages">
                 {messages.map((msg, i) => {
                     if(msg.id == yourID) {
                         return (
@@ -29,7 +30,8 @@ const Messagesection = ({messages, yourID}) => {
                         </div>
                     )
                 })}
-            </div>
+        </ScrollToBottom>
+        
     )
 }
 
