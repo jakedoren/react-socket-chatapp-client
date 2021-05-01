@@ -4,7 +4,6 @@ import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
 import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import Home from './Home';
 import Login from './Login';
-import Protected from './Protected';
 import Chat from './components/chat/Chat'
 import { oktaAuthConfig, oktaSignInConfig } from './config';
 import UserContext from './UserContext';

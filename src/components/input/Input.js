@@ -7,7 +7,7 @@ const Input = ({ sendMessage, message, handleChange }) => {
             <div className="input-submit">
                 <form className="text-form" onSubmit={sendMessage}>
                     <input value={message} onChange={handleChange} placeholder="dont be shy.. say something!"/>
-                    <button><SendIcon /></button>
+                    <button><SendIcon fontSize="inherit" style={{fontSize: "1.5em"}}/></button>
                 </form>
             </div>
     )

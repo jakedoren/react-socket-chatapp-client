@@ -10,8 +10,8 @@ const Messagesection = ({messages, yourID}) => {
             {messages.map((msg, i) => {
                 if(msg.id == yourID) {
                     return (
-                        <div>
-                            <div className="your-msg" key={i}>
+                        <div key={i}>
+                            <div className="your-msg" >
                                 <div className="your-bubble">
                                     <p>{msg.body}</p>
                                 </div>    
@@ -19,10 +19,10 @@ const Messagesection = ({messages, yourID}) => {
                         </div>
                     ) 
                 } return (
-                    <div>
+                    <div key={i}>
                         {msg.name ? <h1 className="name">{msg.name}</h1> : <h1 className="name">ChatBot</h1>}
-                        <div className="friend-msg" key={i} >
-                            <div className="their-bubble" >
+                        <div className="friend-msg" >
+                            <div className="their-bubble" key={i} >
                                 <p>{msg.body}</p>
                             </div>
                         </div>

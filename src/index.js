@@ -12,4 +12,4 @@ ReactDOM.render(
 );
 
 
-reportWebVitals(console.log);
+reportWebVitals();

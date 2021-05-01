@@ -1,7 +1,6 @@
 import './Users.css'
 const Users = ({users}) => {
     
-    
     return (
       <div className="users-wrapper">
            {

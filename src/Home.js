@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 import Login from './components/login/Login'
@@ -8,7 +8,6 @@ const Home = () => {
   const history = useHistory();
   const { oktaAuth, authState } = useOktaAuth();
   
-
   if (authState.isPending) return null;
 
   const login = async () => history.push('/login');
