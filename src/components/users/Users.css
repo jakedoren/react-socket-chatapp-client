@@ -1,0 +1,31 @@
+.users-wrapper {
+  height: 82%;
+  width: 100%;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.users-section {
+  width: 80%;
+}
+
+.users-copy-wrap {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.users-copy-wrap h1 {
+  margin: 15px;
+  color: #01695a;
+}
+
+.user-box {
+  padding: 10px;
+  background-color: #fff;
+}
+
+.user-box:hover {
+  background-color: rgba(255, 255, 255, 0.479);
+}

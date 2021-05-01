@@ -1,79 +1,82 @@
 .join-wrap {
-    height: 100vh;
-    width: 100vw;
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(75,215,237,1) 0%, rgba(80,113,190,1) 39%, rgba(216,96,218,1) 85%);
-    display: grid;
-    place-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #00a389;
+  display: grid;
+  place-items: center;
 }
 
-
 .join-container {
-    background-color: white;
-    border-radius: 10px;
-    width: 30em;
-    height: 25em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  background-color: white;
+  border-radius: 10px;
+  width: 30em;
+  height: 25em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .inputs {
-    width: 70%;
-    margin: 0 auto; 
-    display: flex;
-    flex-direction: column;
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .join-btn {
-    width: 100%;
-    height: 2.5em;
-    margin: 2.5em 0;
-    border-radius: 50px;
-    border: 0;
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(75,215,237,1) 0%, rgba(80,113,190,1) 39%, rgba(216,96,218,1) 85%);
-    color: white;
-    font-weight: 600;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
+  width: 100%;
+  height: 2.5em;
+  margin: 2.5em 0;
+  border-radius: 50px;
+  border: 0;
+  background-color: #00a389;
+  color: white;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
 }
-
 
 .brand-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.brand-container h1{
-    margin: 0em;
-    color: #1f1f1f;
+.brand-container h1 {
+  margin: 0em;
+  color: #1f1f1f;
+  font-size: 1.3em;
 }
 
-p{
-    margin: 1em 0;
+p {
+  margin: 1em 0;
 }
 
 .inputs span {
-    background-color: #1f1f1f;
-    width: 100%;
-    height: 2px;
-    margin-top: 0.5em;
-    padding: 0;
+  background-color: #1f1f1f;
+  width: 100%;
+  height: 2px;
+  margin-top: 0.5em;
+  padding: 0;
 }
 
 a {
-    margin: 0;
+  margin: 0;
 }
 
 .inputs input {
-    border: 0;
-    padding: 0.7em 0;
-    border-bottom: 2px solid #c7c4c4;
+  border: 0;
+  padding: 0.7em 0;
+  border-bottom: 2px solid #c7c4c4;
 }
 
 .inputs input:focus {
-    outline: none;
-    color: black;
+  outline: none;
+  color: black;
+}
+
+.login-input {
+  width: 100%;
 }
 

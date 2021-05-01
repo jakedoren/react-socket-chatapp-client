@@ -3,12 +3,12 @@ import io from 'socket.io-client'
 import Input from '../input/Input'
 import queryString from 'query-string'
 import Messagesection from '../messagesection/Messagesection'
-import Heading from '../heading/Heading'
 import { useOktaAuth } from '@okta/okta-react';
 import Users from '../users/Users'
-
 import './Chat.css'
 import UserContext from '../../UserContext'
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 const Chat = ({location}) => {
     const [yourID, setYourID] = useState();
@@ -19,6 +19,9 @@ const Chat = ({location}) => {
     const [room, setRoom] = useState('')
     const { oktaAuth, authState } = useOktaAuth();
     const [users, setUsers] = useState('')
+    const [messageSection, setMessageSection] = useState(true)
+    const [modal, setModal] = useState(false)
+   
 
     const ENDPOINT = 'http://localhost:8080/'
 
@@ -43,10 +46,8 @@ const Chat = ({location}) => {
         const { room } = queryString.parse(location.search);
 
         socketRef.current = io.connect(ENDPOINT)
-
        
         setRoom(room)
-        console.log(userVal)
 
         socketRef.current.emit('join', {userVal, room})
 
@@ -56,14 +57,12 @@ const Chat = ({location}) => {
 
         socketRef.current.on('message', (message) => {
             recievedMessage(message)
-            console.log(message)
         })
 
 
         socketRef.current.on('roomUsers', ({users}) => {
             setUsers(users)
         })
-        
         
 
         return ()=>{
@@ -79,7 +78,6 @@ const Chat = ({location}) => {
 
     const handleChange = (e) => {
         setMessage(e.target.value)
-        console.log(message)
     }
 
     const sendMessage = (e) => {
@@ -98,17 +96,42 @@ const Chat = ({location}) => {
 
     const recievedMessage = (message) => {
         setMessages(oldMsgs => [...oldMsgs, message])
-        console.log(messages)
     }
 
+    const handleModal = () => {
+        setModal(!modal)
+    }
 
     return (
-        <div className="app-container">
-            <Heading room={room} />
-            <Messagesection messages={messages} yourID={yourID} />
-            <Input sendMessage={sendMessage} message={message} handleChange={handleChange} />
-            <Users users={users}/>
+        <div className="app-wrapper">
+            <div className="app-container">
+            <div className="heading-container">
+            <div className="heading-copy-container">
+                <div>
+                    <h1>{room}</h1>
+                </div>
+                <div className="link-wrap">
+                    <div className="burger">
+                        {modal ? <CloseIcon  onClick={handleModal}/> : <MenuIcon onClick={handleModal}/>}
+                            {modal ? 
+                            <div className="dd-list">
+                                <li className={messageSection ? "active-color" : "nonactive-color"} onClick={() => setMessageSection(true)}>Messages</li>
+                                <li className={messageSection ? "nonactive-color" : "active-color"} onClick={() => setMessageSection(false)}>Participants</li>
+                            </div>
+                            : null}
+                    </div>
+                    <ul>
+                        <li className={messageSection ? "active" : null} onClick={() => setMessageSection(true)}>Messages</li>
+                        <li className={messageSection ? null : "active"} onClick={() => setMessageSection(false) }>Participants</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+                {messageSection ? <Messagesection messages={messages} yourID={yourID} /> : <Users users={users}/>}    
+                {messageSection ? <Input sendMessage={sendMessage} message={message} handleChange={handleChange} /> : null}
+            </div>
         </div>
+        
     )
 }
 

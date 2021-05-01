@@ -1,11 +1,9 @@
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 import OktaSignInWidget from './OktaSignInWidget';
 import { useOktaAuth } from '@okta/okta-react';
-import UserContext from './UserContext'
 
 const Login = ({ config }) => {
-  const { setName, name } = useContext(UserContext)
   const { oktaAuth, authState } = useOktaAuth();
 
 

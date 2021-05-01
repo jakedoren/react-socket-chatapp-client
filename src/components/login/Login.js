@@ -40,12 +40,12 @@ const Join = ({logButton}) => {
                     <span></span>
                     {isLoggedIn ? 
                     <div>
-                        <p>Room</p>
-                        <input type="text" placeholder="myfriendschatroom" className="login-input" onChange={event => setRoom(event.target.value)} />
+                        <p>Enter a room!</p>
+                        <input type="text" placeholder="chatroom" className="login-input" onChange={event => setRoom(event.target.value)} />
                         <Link to={`chat?room=${room}`} onClick={event => !room ? event.preventDefault() : null} className="join-btn" >Enter Chat</Link><br/>
-                         {logButton}
+                        <a className="logbtn">{logButton}</a> 
                     </div>
-                    : <a>{logButton}</a>}
+                    : <a className="logbtn">{logButton}</a>}
                 </div>
             </div>
         </div>

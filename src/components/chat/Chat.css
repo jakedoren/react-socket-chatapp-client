@@ -1,13 +1,125 @@
+.app-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: grey;
+}
+
 .app-container {
-    width: 80vw;
-    margin: 0 auto;
-    height: 100vh;
-    background-color: #383636;
+  width: 60vw;
+  height: 90vh;
+  background-color: #edf0f5;
+  border-radius: 20px;
+}
+
+.heading-container {
+  background-color: #edeff4;
+  border-radius: 20px 20px 0px 0px;
+  border-bottom: 2px solid #cacdd4b4;
+  height: 8%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  color: black;
+}
+
+.link-wrap ul {
+  display: flex;
+}
+
+.link-wrap ul li {
+  list-style: none;
+  margin: 0 0 0 2em;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.heading-copy-container h1 {
+  margin: 0;
+  color: black;
+}
+
+.heading-copy-container {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.active {
+  background-color: #83d8cb;
+  color: #01695a;
+  border-radius: 8px;
+}
+
+.burger {
+  display: none;
+}
+
+.ddl {
+  background-color: black;
+}
+
+.dd-list {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  left: 0;
+  top: 8.2%;
+}
+
+.dd-list li {
+  width: 100vw;
+  list-style-type: none;
+  background-color: #1f1f1f;
+  padding: 1em 0;
+  z-index: 1;
+  border: 1px solid #1f1f1f;
+  text-align: center;
+  margin: -1px 0;
+}
+
+.active-color {
+  color: #00a389;
+}
+
+.nonactive-color {
+  color: #fff;
+}
+
+@media screen and (max-width: 660px) {
+  .app-container {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .link-wrap ul li {
+    margin: 0 0 0 0.3em;
+  }
+}
+@media screen and (max-width: 350px) {
+  .burger {
     display: flex;
-    flex-direction: column;
+  }
+
+  .link-wrap ul {
+    display: none;
+  }
 }
 
-body {
-    /* background-color: black; */
+@media screen and (max-height: 480px) {
+  .heading-container {
+    height: 13%;
+  }
 }
-
+@media screen and (max-height: 320px) {
+  .heading-container {
+    height: 20%;
+  }
+}
