@@ -1,8 +1,9 @@
 import './Users.css'
+import ScrollToBottom from 'react-scroll-to-bottom'
 const Users = ({users}) => {
     
     return (
-      <div className="users-wrapper">
+      <ScrollToBottom className="users-wrapper">
            {
       users
         ? (
@@ -19,7 +20,7 @@ const Users = ({users}) => {
         )
         : null
     }
-      </div>
+      </ScrollToBottom>
     )
 }
 

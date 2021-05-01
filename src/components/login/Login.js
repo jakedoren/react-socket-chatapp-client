@@ -21,7 +21,6 @@ const Join = ({logButton}) => {
             setIsLoggedIn(true)
             setName(tok.accessToken.claims.sub)
           })
-    
         }
       }, [authState, oktaAuth])
 
