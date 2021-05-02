@@ -2,7 +2,7 @@
   height: 82%;
   width: 100%;
   justify-content: center;
-  overflow: scroll;
+  overflow-y: auto;
 }
 
 .users-section {
