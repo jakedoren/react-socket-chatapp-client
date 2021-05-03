@@ -116,7 +116,7 @@ const Chat = ({location}) => {
                             {modal ? 
                             <div className="dd-list">
                                 <li className={messageSection ? "active-color" : "nonactive-color"} onClick={() => setMessageSection(true)}>Messages</li>
-                                <li className={messageSection ? "null" : "active-color"} onClick={() => setMessageSection(false)}>Participants</li>
+                                <li className={messageSection ? "nonactive-color" : "active-color"} onClick={() => setMessageSection(false)}>Participants</li>
                             </div>
                             : null}
                     </div>
