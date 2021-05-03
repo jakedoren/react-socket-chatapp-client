@@ -26,3 +26,9 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 510px) {
+  .logout-btn {
+    color: #00a389;
+  }
+}
