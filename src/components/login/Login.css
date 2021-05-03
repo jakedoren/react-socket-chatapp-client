@@ -80,3 +80,9 @@ a {
   width: 100%;
 }
 
+@media screen and (max-width: 510px ) {
+  .join-container {
+    height: 100%;
+    width: 100%;
+  }
+}

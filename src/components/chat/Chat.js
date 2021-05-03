@@ -9,6 +9,7 @@ import './Chat.css'
 import UserContext from '../../UserContext'
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
+import { Redirect } from 'react-router'
 
 const Chat = ({location}) => {
     const [yourID, setYourID] = useState();
@@ -63,7 +64,7 @@ const Chat = ({location}) => {
         socketRef.current.on('roomUsers', ({users}) => {
             setUsers(users)
         })
-        
+
 
         return ()=>{
             socketRef.current.close();
