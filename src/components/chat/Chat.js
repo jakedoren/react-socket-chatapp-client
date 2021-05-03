@@ -70,7 +70,7 @@ const Chat = ({location}) => {
         }
         
         
-    }, [ENDPOINT, location.search])
+    }, [location.search])
 
     
     
@@ -86,7 +86,7 @@ const Chat = ({location}) => {
         const messageObject = {
             body: message,
             id: yourID,
-            name: userVal
+            name: userVal 
         };
 
         setMessage('')
