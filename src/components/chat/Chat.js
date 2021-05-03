@@ -50,7 +50,9 @@ const Chat = ({location}) => {
        
         setRoom(room)
 
-        socketRef.current.emit('join', {userVal, room})
+        socketRef.current.on('connect', () => {
+            socketRef.current.emit('join', {userVal, room})
+        })
 
         socketRef.current.on('your id', (id) => {
             setYourID(id)
