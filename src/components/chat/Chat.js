@@ -30,10 +30,6 @@ const Chat = ({location}) => {
     const socketRef = useRef();
 
     useEffect(() => {
-        axios.get(ENDPOINT).catch(err => console.log(err))
-    })
-
-    useEffect(() => {
         localStorage.setItem('username', name)
       }, [name])
 

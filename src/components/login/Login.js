@@ -11,6 +11,7 @@ const Join = ({logButton}) => {
     const {name, setName} = useContext(UserContext)
 
     const [userVal, setUserVal] = useState(localStorage.getItem('username') || '')
+    const ENDPOINT = 'https://chitchat-socketio.herokuapp.com/'
 
     useEffect(() => {
         if(!authState.isAuthenticated) {
@@ -23,6 +24,10 @@ const Join = ({logButton}) => {
           })
         }
       }, [authState, oktaAuth])
+
+    useEffect(() => {
+      axios.get(ENDPOINT).catch(err => console.log(err))
+    }, [])
 
       useEffect(() => {
         localStorage.setItem('username', name)
