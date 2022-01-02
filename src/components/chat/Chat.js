@@ -24,7 +24,7 @@ const Chat = ({location}) => {
     const [modal, setModal] = useState(false)
    
 
-    const ENDPOINT = 'https://react-socket-chatapp-server-7rbrl.ondigitalocean.app/'
+    const ENDPOINT = 'https://chitchat-socketio.herokuapp.com/'
 
     const socketRef = useRef();
 
