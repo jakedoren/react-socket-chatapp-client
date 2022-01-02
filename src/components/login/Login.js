@@ -2,6 +2,7 @@ import React, {useContext, useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import UserContext from '../../UserContext'
 import { useOktaAuth } from '@okta/okta-react';
+import axios from 'axios'
 import './Login.css'
 
 const Join = ({logButton}) => {
