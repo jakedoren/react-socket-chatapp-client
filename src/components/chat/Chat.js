@@ -10,6 +10,7 @@ import UserContext from '../../UserContext'
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import { Redirect } from 'react-router'
+import axios from 'axios'
 
 const Chat = ({location}) => {
     const [yourID, setYourID] = useState();
@@ -27,6 +28,10 @@ const Chat = ({location}) => {
     const ENDPOINT = 'https://chitchat-socketio.herokuapp.com/'
 
     const socketRef = useRef();
+
+    useEffect(() => {
+        axios.get(ENDPOINT).catch(err => console.log(err))
+    })
 
     useEffect(() => {
         localStorage.setItem('username', name)
